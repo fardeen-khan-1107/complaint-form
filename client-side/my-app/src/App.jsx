@@ -4,12 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 export const handleLoginSuccess = () => {
   setIsLoggedIn(true);
   localStorage.setItem('loggedInUser', 'true'); // Store login state (optional)
-  navigate('/'); // Redirect to home page after login
+  navigate('/');
 };
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Login state
   const navigate = useNavigate();
-
   useEffect(() => {
     // Check for existing login state in localStorage (optional)
     const storedUser = localStorage.getItem('loggedInUser');
@@ -26,10 +25,7 @@ function App() {
       {isLoggedIn ? (
         <div className='flex justify-center items-center gap-5'>
           <Link to="/complaint">Register Complaint</Link>
-          <button onClick={() => { // Handle logout (optional)
-            setIsLoggedIn(false);
-            localStorage.removeItem('loggedInUser');
-          }}>Logout</button>
+          <button onClick={() => {setIsLoggedIn(false); localStorage.removeItem('loggedInUser');}}>Logout</button>
         </div>
       ) : (
         <div className='flex justify-center items-center gap-5'>

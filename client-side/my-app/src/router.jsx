@@ -1,18 +1,19 @@
-import {createBrowserRouter} from 'react-router-dom'
 import Signup from './components/Signup';
 import Login from './components/Login';
-import App from './App';
-import Complaints from './components/Complaints';
 import Home from './components/Home';
+import Complaints from './components/Complaints';
+import App from './App';
+import {createBrowserRouter} from 'react-router-dom'
+import Admin from './components/Admin';
 
  const router =createBrowserRouter(         
     [
       {path:'/', element:<App />},
-      {path:'/home', element:<Home />},
-      {path:'/register', element: <Signup />},
       {path:'/login', element:<Login />},
-      {path:'/complaints', element:<Complaints />}
-
+      {path:'/register', element: <Signup />},
+      {path:'/home', element:<Home />},
+      {path:'/complaints', element:<Complaints />},
+      {path:'/admin',element:<Admin />}
     ]
    );
 
