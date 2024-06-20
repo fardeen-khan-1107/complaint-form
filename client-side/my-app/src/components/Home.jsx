@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 const Home = () => {
   const [allComplaints, setAllComplaints] = useState([]);
   const [fetchError, setFetchError] = useState('');
 
-  //fetch complaints from the server
   useEffect(() => {
     const fetchComplaints = async () => {
       try {
@@ -20,17 +19,17 @@ const Home = () => {
     fetchComplaints();
   }, []); 
 
-  //show all the complaints to the user
   return (
-    <div className='flex items-center flex-col'>
-      <Link to='/complaints'>Go to Complaints</Link>
-      <h1>All Complaints</h1>
-      {fetchError && <p>{fetchError}</p>}
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div className=' items-center flex-col font-Hindi'>
+      <Link to='/complaints' className='flex justify-end mb-4 text-2xl'>
+      <p className='border-2 border-black py-4 px-5 rounded-md mt-7 mr-20 hover:bg-green-300 hover:text-black duration-700 hover:border-none'>Go to Complaints</p></Link>
+      <h1 className='flex justify-center text-5xl font-bold mb-20'>All Complaints</h1>
+      {fetchError && <p className='text-red-500 mb-4'>{fetchError}</p>}
+      <div className='flex flex-wrap gap-6'>
         {allComplaints.map((complaint) => (
-          <div key={complaint._id} style={{ border: '1px solid black', padding: '20px', margin: '10px', width: '300px' }}>
-            <h2>{complaint.title}</h2>
-            <p>{complaint.description}</p>
+          <div key={complaint._id} className='border border-gray-300 rounded-lg p-4 w-72'>
+            <h2 className='text-lg font-semibold mb-2'><strong className='text-[#6B8A7A]'>User Name:</strong>{complaint.title}</h2>
+            <p className='text-gray-600'><strong className='text-[#6B8A7A]'>user Complaint:</strong>{complaint.description}</p>
           </div>
         ))}
       </div>

@@ -5,6 +5,7 @@ import Complaints from './components/Complaints';
 import App from './App';
 import {createBrowserRouter} from 'react-router-dom'
 import Admin from './components/Admin';
+import Technician from './components/Technician';
 
  const router =createBrowserRouter(         
     [
@@ -13,7 +14,8 @@ import Admin from './components/Admin';
       {path:'/register', element: <Signup />},
       {path:'/home', element:<Home />},
       {path:'/complaints', element:<Complaints />},
-      {path:'/admin',element:<Admin />}
+      {path:'/admin',element:<Admin />},
+      {path:'/technician',element:<Technician/>}
     ]
    );
 
