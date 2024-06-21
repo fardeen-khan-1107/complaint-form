@@ -17,7 +17,7 @@ const Signup = () => {
     try {
       const response = await axios.post("http://localhost:5000/register", data);
       console.log(response.data);
-      navigate("/home");
+      navigate('/login');
     } catch (error) {
       console.error("Error:", error);
       setErrorMsg(error.message);
@@ -69,7 +69,7 @@ const Signup = () => {
             </div>
             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label htmlFor="role" className="block text-sm font-medium mt-3 mr-[60px] text-gray-700">
               Role
             </label>
@@ -79,7 +79,7 @@ const Signup = () => {
               <option value="technician">Technician</option>
             </select>
             {errors.role && <p className="text-red-500 text-sm mt-1">{errors.role.message}</p>}
-          </div>
+          </div> */}
           <button type="submit" className="w-92 ml-44 bg-blue-500 text-white py-2 px-10 rounded-lg hover:bg-blue-600 mt-4">
             Submit
           </button>

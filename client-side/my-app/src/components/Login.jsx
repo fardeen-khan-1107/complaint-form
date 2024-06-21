@@ -4,14 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "./AuthContext";
 const LoginForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm(); // useForm hook for form handling
-  const [errorMessage, setErrorMessage] = useState(''); // State to store error message
-  const navigate = useNavigate(); // Navigate hook for redirection
-  const { login } = useContext(AuthContext); // AuthContext to handle login state
-  // Function to handle form submission
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext); 
+  // function to handle form submission
   const onSubmit = async (formData) => {
     try {
-      // Send login request to backend
+      // send login request to backend
       const response = await axios.post('http://localhost:5000/login', {
         username: formData.username,
         password: formData.password,
@@ -19,7 +19,6 @@ const LoginForm = () => {
       });
       // Call login function from AuthContext to set user authentication
       login(response.data.user);
-      // Redirect user based on role after successful login
       if (response.data.role === 'admin') {
         navigate('/admin'); 
       } else if (response.data.role === 'technician') {

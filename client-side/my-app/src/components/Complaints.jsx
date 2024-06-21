@@ -13,11 +13,11 @@ const Complaints = () => {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post('http://localhost:5000/complaints', data);
-      setMessage('Complaint submitted successfully');
+      setMessage('complaint submitted successfully');
       navigate('/home');
     } catch (error) {
-      console.error('Submission error:', error);
-      setMessage('Failed to submit complaint');
+      console.error('submission error:', error);
+      setMessage('failed to submit complaint');
     }
   };
 
@@ -34,7 +34,7 @@ const Complaints = () => {
   );
 };
 
-// Reusable FormField component to handle different types of form fields
+// reusable FormField component to handle different types of form fields
 const FormField = ({ register, placeholder, type, error }) => (
   <div className="mb-4">
     {type === "textarea" ? (

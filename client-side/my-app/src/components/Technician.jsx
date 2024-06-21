@@ -16,7 +16,6 @@ const Technician = () => {
         console.error('Error fetching complaints:', error);
       }
     };
-
     fetchAssignedComplaints();
   }, [technicianUsername]);
 

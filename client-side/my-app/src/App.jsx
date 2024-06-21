@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import img1 from "./assets/img1.png";
 import img2 from "./assets/img2.jpeg";
 import img3 from "./assets/img3.png";
+import footer from "./components/Footer";
   
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Login state
@@ -60,11 +61,11 @@ function App() {
         
       </div>
       <div className='w-full flex text-2xl justify-around'>
-        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700'>whatsapp</div>
-        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700'>Email</div>
-        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700'>Facebook</div>
-        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700'>Contact No.</div>
-        <div className='font-Robot py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700'>Twitter</div>
+        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700 border-2 border-gray-300'>whatsapp</div>
+        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700 border-2 border-gray-300'>Email</div>
+        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700 border-2 border-gray-300'>Facebook</div>
+        <div className='font-Robot  py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700 border-2 border-gray-300'>Contact No.</div>
+        <div className='font-Robot py-3 px-10 rounded-2xl  hover:bg-green-300 hover:text-black hover:border-none duration-700 border-2  border-gray-300'>Twitter</div>
       </div>
       <div className='w-full flex py-10 '>
         <div className='w-[50%] mt-20 ml-20'>
@@ -81,6 +82,21 @@ function App() {
             We pride ourselves on our dedication to customer satisfaction. Whether it's day or night, our service team is always ready to assist you with any issues you may encounter. Our commitment to you is unwavering, and we strive to provide seamless support whenever you need it.            </div>
         </div>
       </div>
+      <footer className="bg-[#B6C7AA] py-6 h-72 pt-32">
+    <div className="container mx-auto px-6">
+      <div className="flex justify-between items-center">
+        <div className="text-sm">
+          <p>&copy; 2023 Your Company. All rights reserved.</p>
+          <p>1234 Street Address, City, State, ZIP</p>
+        </div>
+        <div className="flex space-x-6">
+          <p className=" hover:text-white">Privacy Policy</p>
+          <p className=" hover:text-white">Terms & Conditions</p>
+          <p className=" hover:text-white">Contact Us</p>
+        </div>
+      </div>
+    </div>
+  </footer>
     </section>
   );
 }

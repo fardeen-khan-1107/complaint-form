@@ -55,7 +55,7 @@ const Admin = () => {
             <h2 className="text-xl font-semibold"><strong className="text-[#6B8A7A]">User Name:</strong> {complaint.title}</h2>
             <p><strong className="text-[#6B8A7A]">issue:</strong> {complaint.description}</p>
             {/* <p>{complaint.username}</p> */}
-            <p><strong className="text-[#6B8A7A]">No. of Technician:</strong> {complaint.assignedTechnician || 'None'}</p>
+            {/* <p><strong className="text-[#6B8A7A]">No. of Technician:</strong> {complaint.assignedTechnician || 'None'}</p> */}
             <div className="mt-2">
               <label htmlFor="technician" className="block text-[#6B8A7A] text-sm font-medium text-gray-700">
                 Assign

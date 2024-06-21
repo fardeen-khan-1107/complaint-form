@@ -18,13 +18,13 @@ app.use(express.json());
 
 const MongoDB = "mongodb://127.0.0.1:27017/fardeen";
 
-// MongoDB connection
+// mongodb connection
 mongoose
   .connect(MongoDB)
   .then(() => console.log("MongoDB is connected to the database"))
   .catch((err) => console.log(err));
 
-// Mongo schema of user 
+// mongo schema of user 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
@@ -33,7 +33,9 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
-
+app.get("/",(req,res)=>{
+  res.send("Server is ready");
+})
 // Registration 
 app.post("/register", async (req, res) => {
   try {
@@ -57,20 +59,20 @@ app.post("/login", async (req, res) => {
   try {
     const { username, password, role } = req.body;
     if (!username || !password || !role) {
-      return res.status(400).json({ error: "username, password, and role required" });
+      return res.status(400).json({ error: "username, password  required" });
     }
 
     const user = await User.findOne({ username, role });
-    if (!user) return res.status(400).json({ error: "Invalid credentials" });
+    if (!user) return res.status(400).json({ error: "Invalid data" });
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
+    if (!isMatch) return res.status(400).json({ error: "Invalid data" });
 
     const token = jwt.sign({ id: user._id }, "secret", { expiresIn: "1h" });
     res.json({ token, role: user.role });
   } catch (error) {
     console.error("Login error:", error);
-    res.status(500).json({ error: "Failed to login" });
+    res.status(500).json({ error: "unable to login" });
   }
 });
 
@@ -162,15 +164,6 @@ app.put('/complaints/:id/fix', async (req, res) => { // New endpoint to mark com
 });
 
 // Fetch all technicians
-app.get("/technicians", async (req, res) => {
-  try {
-    const technicians = await User.find({ role: "technician" }).select("username");
-    res.json(technicians);
-  } catch (error) {
-    console.error("Error fetching technicians:", error);
-    res.status(500).json({ error: "Failed to fetch technicians" });
-  }
-});
 
 app.listen(PORT, () => {
   console.log(`Server is listening on the port no. ${PORT}`);
